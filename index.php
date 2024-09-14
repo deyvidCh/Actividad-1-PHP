@@ -33,8 +33,8 @@
             Menu
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="empleado.php">Empleado</a></li>
-            <li><a class="dropdown-item" href="#">Nuevo</a></li>
+            <li><a class="dropdown-item" href="empleados.php">Empleado</a></li>
+            <li><a class="dropdown-item" href="empleado.php">Nuevo</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php">Inicio</a></li>
           </ul>
