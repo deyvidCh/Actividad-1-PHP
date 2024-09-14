@@ -77,8 +77,44 @@
     <button class="btn btn-primary" name="btn_crear" id="btn_crear" value="crear"><i class="bi bi-floppy"></i> Crear</button>
     <button class="btn btn-warning" name="btn_actualizar" id="btn_actualizar" value="crear"><i class="bi bi-pencil-fill"></i> Actualizar</button>
     <button class="btn btn-danger" name="btn_borrar" id="btn_borrar" value="crear"><i class="bi bi-trash-fill"></i> Borrar</button>
-
+    </br>
     </form>
+    <table class="table table-striped table-inverse table-responsive">
+      <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nomrbres</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Puesto</th>
+            <th>Nacimiento</th>  
+        </tr>
+      </thead>
+      <tbody>
+      <?php
+        include("datos_conexion.php");
+        $db_conexion = mysqli_connect ($db_host,$db_user,$db_pass,$db_db);
+            if ($db_conexion){
+                $db_conexion -> real_query("SELECT e.id_empleado as id,e.codigo,e.nombres,e.apellidos,e.direccion,e.telefono,p.puesto,e.fecha_nacimiento FROM empleados as e inner join puestos as p on e.id_puesto = p.id_puesto;");
+                $resultado = $db_conexion -> use_result();
+                while($fila = $resultado -> fetch_assoc()){
+                  echo"<tr data-id=" .$fila ['id'].">";
+                  echo "<td>" .$fila ['codigo']."</td>";
+                  echo "<td>" .$fila ['nombres']."</td>";
+                  echo "<td>" .$fila ['apellidos']."</td>";
+                  echo "<td>" .$fila ['direccion']."</td>";
+                  echo "<td>" .$fila ['telefono']."</td>";
+                  echo "<td>" .$fila ['puesto']."</td>";
+                  echo "<td>" .$fila ['fecha_nacimiento']."</td>";
+                  echo"<tr>";
+                }
+                
+            }
+            $db_conexion ->close();
+    ?> 
+      </tbody>
+    </table> 
     </div>
     <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
