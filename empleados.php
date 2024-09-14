@@ -27,7 +27,7 @@
             <li><a class="dropdown-item" href="empleados.php">Empleados</a></li>
             <li><a class="dropdown-item" href="empleado.php">Nuevo</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Vacio</a></li>
+            <li><a class="dropdown-item" href="index.php">Inicio</a></li>
           </ul>
         </li>
       </ul>
