@@ -13,6 +13,12 @@ if (!empty($_POST)){
         if (isset($_POST["btn_crear"])){
             $sql = "INSERT INTO empleados(codigo,nombres,apellidos,direccion,telefono,fecha_nacimiento,id_puesto) VALUES ('". $txt_codigo ."','". $txt_nombres ."','". $txt_apellidos ."','". $txt_direccion ."','". $txt_telefono ."','". $txt_fn ."',". $drop_puesto .");";
         }
+        if (isset($_POST["btn_actualizar"])){
+            $sql = "update empleados set codigo='". $txt_codigo ."',nombres='". $txt_nombres ."',apellidos='". $txt_apellidos ."',direccion='". $txt_direccion ."',telefono='". $txt_telefono ."',fecha_nacimiento='". $txt_fn ."',id_puesto=". $drop_puesto ." where id_empleado = ". $txt_id .";";
+         }
+         if (isset($_POST["btn_borrar"])){
+            $sql = "delete from empleados where id_empleado = ". $txt_id .";";
+         }
           include("datos_conexion.php");
               $db_conexion = mysqli_connect ($db_host,$db_user,$db_pass,$db_db);
               
