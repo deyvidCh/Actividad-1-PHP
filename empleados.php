@@ -57,7 +57,7 @@
         include("datos_conexion.php");
         $db_conexion = mysqli_connect ($db_host,$db_user,$db_pass,$db_db);
             if ($db_conexion){
-                $db_conexion -> real_query("SELECT e.id_empleado as id,e.codigo,e.nombres,e.apellidos,e.direccion,e.telefono,p.puesto,e.fecha_nacimiento FROM empleados as e inner join puestos as p on e.id_puesto = p.id_puesto;");
+                $db_conexion -> real_query("SELECT e.id_empleado as id,e.codigo,e.nombres,e.apellidos,e.direccion,e.telefono,p.puesto,e.fecha_nacimiento FROM empleados as e inner join puestos as p on e.id_puesto = p.id_puesto order by codigo;");
                 $resultado = $db_conexion -> use_result();
                 while($fila = $resultado -> fetch_assoc()){
                   echo"<tr data-id=" .$fila ['id'].">";
